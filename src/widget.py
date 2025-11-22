@@ -22,3 +22,4 @@ def get_date(input_date: str) -> str:
     """Функция форматирования даты и времени"""
     new_format_date: str = f"{input_date[8:10]}.{input_date[5:7]}.{input_date[:4]}"
     return new_format_date
+
