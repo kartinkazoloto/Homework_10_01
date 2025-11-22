@@ -1,4 +1,4 @@
-import masks
+from src.masks import get_mask_card_number, get_mask_account
 
 
 def mask_account_card(account_info: str) -> str:
@@ -11,9 +11,9 @@ def mask_account_card(account_info: str) -> str:
             break
     product_part = account_info[:digit_start]
     if account_info.lower().startswith("Счет "):
-        masked_number = masks.get_mask_account(account_info)
+        masked_number = get_mask_account(account_info)
     else:
-        masked_number = masks.get_mask_card_number(account_info)
+        masked_number = get_mask_card_number(account_info)
     mask_account_info = product_part + masked_number
     return mask_account_info
 
