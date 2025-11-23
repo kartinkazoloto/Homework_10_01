@@ -13,7 +13,7 @@ git clone https://github.com/kartinkazoloto/Homework_10_01.git
 ```
 2. Установите зависимости:
 ```
-poerty.lock
+poerty install
 ```
 ## Использование:
 
