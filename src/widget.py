@@ -4,7 +4,7 @@ from src.masks import get_mask_account, get_mask_card_number
 
 
 def mask_account_card(account_info: str) -> str:
-    """Функция маскировки ночера счета или карты"""
+    """Функция маскировки номера счета или карты"""
     card_name = " ".join(account_info.split()[:-1])
     card_num = account_info.split()[-1]
     if "Счет" in card_name:
