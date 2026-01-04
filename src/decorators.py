@@ -2,8 +2,7 @@ import logging
 from typing import Callable, Any
 
 
-
-def log(filename: Any=None) -> Callable:
+def log(filename: Any = None) -> Callable:
     """Декоратор, автоматически логирует начало и конец выполнения функции,
     а также ее результаты или возникшие ошибки."""
 

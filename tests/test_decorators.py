@@ -44,11 +44,7 @@ def test_log_to_console_exception(capsys: pytest.CaptureFixture) -> None:
     assert "failing_func error: ZeroDivisionError. Inputs: (10, 0)"
 
 
-
-# --- Тесты для логирования в файл ---
-
-
-def test_log_to_file_success(tmp_path : Path) -> None:
+def test_log_to_file_success(tmp_path: Path) -> None:
     """Тестируем, что при успешном выполнении лог пишется в файл."""
     log_file = tmp_path / "test_success.log"
 
