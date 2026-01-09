@@ -5,8 +5,6 @@ import pytest
 
 from src.decorators import log
 
-# --- Тесты для логирования в консоль ---
-
 
 def test_log_to_console_success(capsys: pytest.CaptureFixture) -> None:
     """Тестируем, что при успешном выполнении функции лог пишется в консоль."""

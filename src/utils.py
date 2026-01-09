@@ -1,5 +1,9 @@
 import json
 import logging
+from pathlib import Path
+
+log_path = Path(__file__).parent / "../logs/log_utils.log"
+log_path.parent.mkdir(parents=True, exist_ok=True)
 
 logging.basicConfig(
     level=logging.DEBUG,
@@ -8,7 +12,7 @@ logging.basicConfig(
     filemode="w",
 )
 logger = logging.getLogger(__name__)
-file_handler = logging.FileHandler("../logs/log_utils.log")
+file_handler = logging.FileHandler(str(log_path))
 file_formatter = logging.Formatter("%(asctime)s - %(filename)s - %(levelname)s - %(message)s")
 file_handler.setFormatter(file_formatter)
 logger.addHandler(file_handler)

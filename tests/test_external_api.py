@@ -1,15 +1,15 @@
-from unittest.mock import patch, Mock
+from unittest.mock import Mock, patch
 
 from src.external_api import conversion_currency
 
 
-def test_conversion_currency():
+def test_conversion_currency() -> None:
     transaction = [{"operationAmount": {"amount": "1500.50", "currency": {"code": "RUB"}}}]
     result = conversion_currency(transaction)
     assert result == 1500.50
 
 
-def test_convert_usd_to_rub():
+def test_convert_usd_to_rub() -> None:
     """Тест: конвертация USD → RUB через API."""
     mock_response = Mock()
     mock_response.status_code = 200
