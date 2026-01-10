@@ -7,7 +7,7 @@ def reading_csv_file(path_csv_file: str) -> list:
     """Функция чтения данных из csv-файла и преобразование его в список словарей"""
     csv_data = []
     try:
-        with open(path_csv_file) as file:
+        with open(path_csv_file, encoding='utf-8') as file:
             reader = csv.DictReader(file, delimiter=";")
             for row in reader:
                 csv_data.append(row)
@@ -16,11 +16,6 @@ def reading_csv_file(path_csv_file: str) -> list:
     except Exception as e:
         print(f"Ошибка при чтении CSV: {e}")
     return csv_data
-
-
-# orig_csv_file = '../data/transactions.csv'
-# f1 = reading_csv_file(orig_csv_file)
-# print(f1)
 
 
 def reading_xlsx_file(path_xlsx_file: str) -> list:
@@ -37,8 +32,3 @@ def reading_xlsx_file(path_xlsx_file: str) -> list:
     except Exception as e:
         print(f"Ошибка при чтении XLSX: {e}")
         return []
-
-
-# orig_xl_file = '../data/transactions_excel.xlsx'
-# f2 = reading_xlsx_file(orig_xl_file)
-# print(f2)
