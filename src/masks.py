@@ -5,14 +5,14 @@ from typing import Union
 log_path = Path(__file__).parent / "../logs/log_masks.log"
 log_path.parent.mkdir(parents=True, exist_ok=True)
 
-logging.basicConfig(
-    level=logging.DEBUG,
-    format="%(asctime)s - %(filename)s - %(levelname)s - %(message)s",
-    filename="../logs/log_masks.log",
-    filemode="w",
-)
+# logging.basicConfig(
+#     level=logging.DEBUG,
+#     format="%(asctime)s - %(filename)s - %(levelname)s - %(message)s",
+#     filename="../logs/log_masks.log",
+#     filemode="w",
+# )
 logger = logging.getLogger(__name__)
-file_handler = logging.FileHandler(str(log_path))
+file_handler = logging.FileHandler(str(log_path), mode="w")
 file_formatter = logging.Formatter("%(asctime)s - %(filename)s - %(levelname)s - %(message)s")
 file_handler.setFormatter(file_formatter)
 logger.addHandler(file_handler)

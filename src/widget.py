@@ -5,7 +5,7 @@ from src.masks import get_mask_account, get_mask_card_number
 
 def mask_account_card(account_info: str) -> str:
     """Функция маскировки номера счета или карты"""
-    card_name = " ".join(account_info.split()[:-1])
+    card_name: str = " ".join(account_info.split()[:-1])
     card_num = account_info.split()[-1]
     if "Счет" in card_name:
         masked_number = get_mask_account(card_num)
@@ -21,8 +21,13 @@ def get_date(input_date: str) -> str:
         raise ValueError("Строка с датой пуста или содержит только пробелы")
         # Форматы, которые мы поддерживаем
     formats = [
+        "%Y-%m-%dT%H:%M:%S.%fZ",  # ISO с микросекундами и Z
+        "%Y-%m-%dT%H:%M:%SZ",  # ISO без микросекунд, с Z
         "%Y-%m-%dT%H:%M:%S.%f",  # ISO с микросекундами
-        "%Y-%m-%dT%H:%M:%S",  # ISO без микросекунд
+        "%Y-%m-%dT%H:%M:%S",  # ISO без Z
+        "%Y-%m-%d %H:%M:%S",  # Пробел вместо T
+        "%d.%m.%Y %H:%M:%S",  # DD.MM.YYYY HH:MM:SS
+        "%d/%m/%Y %H:%M:%S",  # DD/MM/YYYY HH:MM:SS
         "%Y-%m-%d",  # Только дата
     ]
     for fmt in formats:

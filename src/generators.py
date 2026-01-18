@@ -4,7 +4,7 @@ from typing import Generator
 def filter_by_currency(transactions: list, currency_code: str) -> Generator[dict, None, None]:
     """Функция, которая принимает на вход список словарей, представляющих транзакции,
     а возвращает итератор, выдающий транзакции с указанной валютой."""
-    return (t for t in transactions if t["operationAmount"]["currency"]["code"] == currency_code)
+    return (t for t in transactions if t["currency_code"] == currency_code)
 
 
 def transaction_descriptions(transactions: list) -> Generator[str, None, None]:

@@ -4,7 +4,7 @@ from src.external_api import conversion_currency
 
 
 def test_conversion_currency() -> None:
-    transaction = [{"operationAmount": {"amount": "1500.50", "currency": {"code": "RUB"}}}]
+    transaction = {"amount": "1500.50", "currency_code": "RUB"}
     result = conversion_currency(transaction)
     assert result == 1500.50
 
@@ -17,7 +17,7 @@ def test_convert_usd_to_rub() -> None:
 
     with patch("requests.get") as mock_get:
         mock_get.return_value = mock_response
-        transaction = [{"operationAmount": {"amount": "100.00", "currency": {"code": "USD"}}}]
+        transaction = {"amount": "100.00", "currency_code": "USD"}
         result = conversion_currency(transaction)
         assert result == 9200.75
 

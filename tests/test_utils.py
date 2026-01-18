@@ -8,10 +8,44 @@ from src.utils import reading_json_file
 
 def test_valid_json_list() -> None:
     """Тест: файл существует, JSON — список → возвращается список."""
-    mock_file = mock_open(read_data="[1, 2, 3]")
-    with patch("builtins.open", mock_file), patch("json.load", return_value=[1, 2, 3]):
+    mock_file = mock_open(read_data="[{'id': 1},  {'id': 2}, {'id': 3}]")
+    with patch("builtins.open", mock_file), patch("json.load", return_value=[{"id": 1}, {"id": 2}, {"id": 3}]):
         result = reading_json_file("test.json")
-        assert result == [1, 2, 3], "Ожидался список [1,2,3]"
+        assert result == [
+            {
+                "amount": None,
+                "currency_code": None,
+                "currency_name": None,
+                "date": None,
+                "description": None,
+                "from": None,
+                "id": 1,
+                "state": None,
+                "to": None,
+            },
+            {
+                "amount": None,
+                "currency_code": None,
+                "currency_name": None,
+                "date": None,
+                "description": None,
+                "from": None,
+                "id": 2,
+                "state": None,
+                "to": None,
+            },
+            {
+                "amount": None,
+                "currency_code": None,
+                "currency_name": None,
+                "date": None,
+                "description": None,
+                "from": None,
+                "id": 3,
+                "state": None,
+                "to": None,
+            },
+        ]
 
 
 def test_reading_json_file_typeerror() -> None:

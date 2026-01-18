@@ -11,8 +11,8 @@ def conversion_currency(operations: dict) -> float:
     """функция конвертации валюты из USD и EUR в рубли"""
 
     for operation in operations:
-        currency_code: str = operation["operationAmount"]["currency"]["code"]
-        amount: float = operation["operationAmount"]["amount"]
+        currency_code: str = operations["currency_code"]
+        amount: float = operations["amount"]
         if currency_code == "RUB":
             return float(amount)
         else:
